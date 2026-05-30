@@ -2,13 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      "res.cloudinary.com",
-      "go-skill-icons.vercel.app",
-      "www.raw.githubusercontent.com",
-      "raw.githubusercontent.com",
+    remotePatterns: [
+      { protocol: "https", hostname: "res.cloudinary.com" },
+      { protocol: "https", hostname: "go-skill-icons.vercel.app" },
+      { protocol: "https", hostname: "raw.githubusercontent.com" },
+      { protocol: "https", hostname: "www.raw.githubusercontent.com" },
     ],
   },
+  turbopack: {},
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
